@@ -1,0 +1,17 @@
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc semaphore.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ ./a.out
+Attempting to open port 1
+Port 1 is opened
+Attempting to open port 3
+Port 3 is opened
+Attempting to open port 2
+Port 2 is opened
+Attempting to open port 5
+Port 5 is opened
+Attempting to open port 4
+Port 4 is opened
+Port 3 is closed
+Port 1 is closed
+Port 5 is closed
+Port 4 is closed
+Port 2 is closed
