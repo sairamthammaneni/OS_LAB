@@ -1,0 +1,80 @@
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gedit fcfs.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc fcfs.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ ./a.out
+
+Enter the number of processes -- 4
+
+Enter Burst Time for Process 0 -- 2
+
+Enter Burst Time for Process 1 -- 34
+
+Enter Burst Time for Process 2 -- 2
+
+Enter Burst Time for Process 3 -- 3
+	 PROCESS 	BURST TIME 	 WAITING TIME	 TURNAROUND TIME
+
+	 P0 		 2 		 0 		 2
+	 P1 		 34 		 2 		 36
+	 P2 		 2 		 36 		 38
+	 P3 		 3 		 38 		 41
+Average Waiting Time -- 19.000000
+Average Turnaround Time -- 29.250000
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc sjf.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ ./a.out
+
+Enter the number of processes -- 4
+Enter Burst Time for Process 0 -- 3
+Enter Burst Time for Process 1 -- 34
+Enter Burst Time for Process 2 -- 3
+Enter Burst Time for Process 3 -- 4
+
+	 PROCESS 	BURST TIME 	 WAITING TIME	 TURNAROUND TIME
+
+	 P0 		 3 		 0 		 3
+	 P2 		 3 		 3 		 6
+	 P3 		 4 		 6 		 10
+	 P1 		 34 		 10 		 44
+Average Waiting Time -- 4.750000
+Average Turnaround Time -- 15.750000
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc round.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ ./a.out
+Enter the no of processes -- 4
+
+Enter Burst Time for process 1 -- 34
+
+Enter Burst Time for process 2 -- 23
+
+Enter Burst Time for process 3 -- 4
+
+Enter Burst Time for process 4 -- 5
+
+Enter the size of time slice -- 
+3
+
+	PROCESS	 BURST TIME 	 WAITING TIME	TURNAROUND TIME
+	1 	34 		 32 		 66 
+	2 	23 		 33 		 56 
+	3 	4 		 15 		 19 
+	4 	5 		 16 		 21 
+The Average Turnaround time is -- 40.500000
+The Average Waiting time is -- 24.000000 
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc priority.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ ./a.out
+Enter the number of processes --- 4
+Enter the Burst Time & Priority of Process 0 --- 34
+  
+32
+Enter the Burst Time & Priority of Process 1 --- 3
+3
+Enter the Burst Time & Priority of Process 2 --- 23
+1
+Enter the Burst Time & Priority of Process 3 --- 32
+0
+
+PROCESS		PRIORITY	BURST TIME	WAITING TIME	TURNAROUND TIME
+0 		 32 		 34 		 0 		 34 
+1 		 3 		 3 		 34 		 37 
+2 		 1 		 23 		 37 		 60 
+3 		 0 		 32 		 60 		 92 
+Average Waiting Time is --- 32.750000
+Average Turnaround Time is --- 55.750000
