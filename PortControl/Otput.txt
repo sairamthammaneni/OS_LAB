@@ -15,3 +15,32 @@ Port 1 is closed
 Port 5 is closed
 Port 4 is closed
 Port 2 is closed
+
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ gcc monitor.c
+vitcse@vitcse-ThinkCentre-M70t-Gen-4:~/Documents/OS_LAB$ .a/.out
+Thread 1: Opened a port. Total open ports: 1
+Thread 3: Opened a port. Total open ports: 2
+Thread 2: Opened a port. Total open ports: 3
+Thread 4: Opened a port. Total open ports: 4
+Thread 5: Opened a port. Total open ports: 5
+Thread 6: Waiting for a port to become available...
+Thread 7: Waiting for a port to become available...
+Thread 8: Waiting for a port to become available...
+Thread 9: Waiting for a port to become available...
+Thread 10: Waiting for a port to become available...
+Thread 1: Released a port. Total open ports: 4
+Thread 3: Released a port. Total open ports: 3
+Thread 6: Opened a port. Total open ports: 4
+Thread 7: Opened a port. Total open ports: 5
+Thread 5: Released a port. Total open ports: 4
+Thread 4: Released a port. Total open ports: 3
+Thread 2: Released a port. Total open ports: 2
+Thread 8: Opened a port. Total open ports: 3
+Thread 10: Opened a port. Total open ports: 4
+Thread 9: Opened a port. Total open ports: 5
+Thread 7: Released a port. Total open ports: 4
+Thread 6: Released a port. Total open ports: 3
+Thread 10: Released a port. Total open ports: 2
+Thread 8: Released a port. Total open ports: 1
+Thread 9: Released a port. Total open ports: 0
+All threads have completed.
