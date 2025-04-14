@@ -1,52 +1,53 @@
 #include <stdio.h>
-#include <stdlib.h>
-int main()
-{
-    int i, j, n, bu[10], wa[10], tat[10], t, ct[10], max;
-    float awt = 0, att = 0, temp = 0;
-    printf("Enter the no of processes -- ");
+
+int main() {
+    int i, j, n, timeQuantum;
+    int burstTime[10], waitingTime[10], turnaroundTime[10], remainingTime[10];
+    int total = 0;
+    float avgWT = 0, avgTAT = 0;
+
+    printf("Enter the number of processes: ");
     scanf("%d", &n);
-    for (i = 0; i < n; i++)
-    {
-        printf("\nEnter Burst Time for process %d -- ", i + 1);
-        scanf("%d", &bu[i]);
-        ct[i] = bu[i];
+
+    for (i = 0; i < n; i++) {
+        printf("Enter Burst Time for process %d: ", i + 1);
+        scanf("%d", &burstTime[i]);
+        remainingTime[i] = burstTime[i];
     }
-    printf("\nEnter the size of time slice -- ");
-    scanf("%d", &t);
-    max = bu[0];
-    for (i = 1; i < n; i++)
-        if (max < bu[i])
-            max = bu[i];
-    for (j = 0; j < (max / t) + 1; j++)
-    {
-        for (i = 0; i < n; i++)
-        {
-            if (bu[i] != 0)
-            {
-                if (bu[i] <= t)
-                {
-                    tat[i] = temp + bu[i];
-                    temp = temp + bu[i];
-                    bu[i] = 0;
-                }
-                else
-                {
-                    bu[i] = bu[i] - t;
-                    temp = temp + t;
+
+    printf("Enter the Time Quantum: ");
+    scanf("%d", &timeQuantum);
+
+    int time = 0;
+    while (1) {
+        int done = 1;
+        for (i = 0; i < n; i++) {
+            if (remainingTime[i] > 0) {
+                done = 0;
+                if (remainingTime[i] > timeQuantum) {
+                    time += timeQuantum;
+                    remainingTime[i] -= timeQuantum;
+                } else {
+                    time += remainingTime[i];
+                    turnaroundTime[i] = time;
+                    waitingTime[i] = turnaroundTime[i] - burstTime[i];
+                    remainingTime[i] = 0;
                 }
             }
         }
+        if (done)
+            break;
     }
-    for (i = 0; i < n; i++)
-    {
-        wa[i] = tat[i] - ct[i];
-        att += tat[i];
-        awt += wa[i];
+
+    printf("\nPROCESS\tBURST TIME\tWAITING TIME\tTURNAROUND TIME\n");
+    for (i = 0; i < n; i++) {
+        avgWT += waitingTime[i];
+        avgTAT += turnaroundTime[i];
+        printf("%d\t%d\t\t%d\t\t%d\n", i + 1, burstTime[i], waitingTime[i], turnaroundTime[i]);
     }
-    printf("\n\tPROCESS\t BURST TIME \t WAITING TIME\tTURNAROUND TIME");
-    for (i = 0; i < n; i++)
-        printf("\n\t%d \t%d \t\t %d \t\t %d ", i + 1, ct[i], wa[i], tat[i]);
-    printf("\nThe Average Turnaround time is -- %f", att / n);
-    printf("\nThe Average Waiting time is -- %f \n", awt / n);
+
+    printf("Average Waiting Time: %.2f\n", avgWT / n);
+    printf("Average Turnaround Time: %.2f\n", avgTAT / n);
+
+    return 0;
 }
